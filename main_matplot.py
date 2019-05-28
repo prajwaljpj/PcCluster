@@ -1,7 +1,8 @@
+from mpl_toolkits.mplot3d import Axes3D
+
 import os
 import plyfile
-import plotly
-import plotly.graph_objs as go
+import matplotlib.pyplot as plt
 
 
 def read_ply(path):
@@ -16,14 +17,20 @@ def read_ply(path):
 
     return (zz, yy, zz)
 
+def run_ransac(data):
+    pass
+
 if __name__ == '__main__':
     path = 'C:\\Users\\prajw\\Documents\\Mbzirc\\PcCluster\\data\\test\\1.ply'
     plydata = plyfile.PlyData.read(path)
     # x, y, z = read_ply(path)
-
-    plotly.offline.plot({
-    "data": [go.Scatter3d(x=plydata.elements[0].data['x'], y=plydata.elements[0].data['y'], z=plydata.elements[0].data['z'], mode='markers', marker=dict(size=1))],
-    "layout": go.Layout(title="scatter input")
-	}, auto_open=True)
+    fig = plt.figure()
+    ax = fig.gca(projection='3d')
+    ax.scatter(plydata.elements[0].data['x'], plydata.elements[0].data['y'], plydata.elements[0].data['z'], s=0.2, label='points in (x,z)')
+    ax.legend()
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+    plt.show()
 
 
