@@ -3,7 +3,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import os
 import plyfile
 import matplotlib.pyplot as plt
-
+from ransac import ransac, LinearLeastSquaresModel
 
 def read_ply(path):
     plydata = plyfile.PlyData.read(path)
@@ -18,6 +18,7 @@ def read_ply(path):
     return (zz, yy, zz)
 
 def run_ransac(data):
+    data
     pass
 
 if __name__ == '__main__':

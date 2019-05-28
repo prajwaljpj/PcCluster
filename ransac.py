@@ -166,7 +166,7 @@ def test():
         B_noisy[outlier_idxs] = 50*numpy.random.normal(size=(n_outliers,n_outputs) )
 
     # setup model
-    print(numpy.hstack( (A_noisy, B_noisy) ))
+    # print(numpy.hstack( (A_noisy, B_noisy) ))
     all_data = numpy.hstack( (A_noisy,B_noisy) )
     input_columns = range(n_inputs) # the first columns of the array
     output_columns = [n_inputs+i for i in range(n_outputs)] # the last columns of the array
